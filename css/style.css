@@ -28,9 +28,9 @@ body{
 }
 
 /* padding beetwen sections */
-.about,.education,.skill,.contact{
+.about,.education,.skills,.contact{
     font-family: 'poppins',sans-serif;
-    padding: 27vh 5% 0 5%; 
+    padding: 16vh 5% 0 5%; 
 }
 
 /* navbar */
@@ -372,13 +372,13 @@ span{
 }
 
 /* skills */
-.skill .content-skill{
+.skills .content-skill{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.skill .content-skill .title{
+.skills .content-skill .title{
     font-size: 3rem;
     letter-spacing: .5rem;
     padding-bottom: 6.5rem;
