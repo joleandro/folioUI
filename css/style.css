@@ -107,13 +107,30 @@ body{
 }
 .home .text-animated{
     position: relative;
-    width: 35rem;
+    width: 29rem;
 }
 .home .home-content h3{
-    font-size: 3.2rem;
+    font-size: 2.8rem;
     color: transparent;
     font-weight: 600;
     -webkit-text-stroke: .8px var(--text-main);
+    background-image: linear-gradient(var(--bg-color), var(--text-main));
+    -webkit-background-clip: text;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    animation: homeText 6s linear infinite;
+    transition-delay: .2s;
+}
+.home .home-content h3::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    border-right: .2rem solid var(--text-main);
+    animation: CursorText 6s linear infinite;
+    transition-delay: .2s;
 }
 .home .home-content p{
     padding: 5% 0;
@@ -230,7 +247,7 @@ body{
 }
 .home .home-imgHov:hover{
     background: #030a10;
-    opacity: .8;
+    opacity: .6;
 }
 
 
@@ -275,11 +292,12 @@ span{
     transform: translate(-50%, -50%) rotate(0);
     height: 100%;
     width: 100%;
-    border-top: .2em solid var(--bg-color);
-    border-bottom: .2em solid var(--bg-color);
+    border-top: .2em solid transparent;
+    border-bottom: .2em solid transparent;
     border-left: .2em solid var(--text-main);
     border-right: .2em solid var(--text-main);
     border-radius: 50%;
+    animation: AboutCircleMove 6s linear infinite;
 }
 .about .text-info{
     text-align: center;
@@ -600,7 +618,7 @@ span{
         width: 50vw;
     }
     .home .home-content{
-        padding: 20.5vh 5%;
+        padding: 25.5vh 5%;
     }
     .contact form{
         width: 100%;
@@ -628,9 +646,6 @@ span{
 @media (max-width:600px){
     html{
         font-size: 55%;
-    }
-    .home .home-content{
-        width: 70vw;
     }
     /* hamburger menu */
     .navbar.hamburger{
@@ -677,6 +692,16 @@ span{
         padding: 1.3em 0;
     }
     /* end */
+    .home .home-content{
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .home .home-content h1,.home .home-content p{
+     text-align: center;   
+    }
     .footer{
         flex-direction: column-reverse;
     }
@@ -695,9 +720,6 @@ span{
     .navbar .container{
         padding: 0 1.5rem;
     }
-    .home .home-content{
-        width: 80vw;
-    }
     .home .home-content .button-box{
         width: 30rem;
     }
@@ -715,8 +737,6 @@ span{
     }
 
 }
-
-
 
 /* settings scrollbar */
 /* width */
@@ -739,3 +759,31 @@ span{
     background: #555;
   }
 
+
+/* keyFrames */
+@keyframes homeText{
+    0%,10%,100%{
+       background-position: -29rem 0; 
+    }
+    65%,85%{
+        background-position: 0 0;
+    }
+}
+
+@keyframes CursorText{
+    0%,10%,100%{
+        width: 0;
+    }
+    65%,70%,85%{
+        width: 100%;
+        opacity: 1;
+    }
+    75%,85%{
+        opacity: 0;
+    }
+}
+@keyframes AboutCircleMove{
+    100%{
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
