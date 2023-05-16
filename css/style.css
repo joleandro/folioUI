@@ -40,6 +40,11 @@ body{
     position: fixed;
     top: 0;
     left: 0;
+    height: 8vh;
+}
+.navbar.sticky{
+    background-color: var(--bg-color);
+    transition: .5s;
 }
 
 .navbar .container{
@@ -48,14 +53,16 @@ body{
     justify-content: space-between;
     align-items: center;
     width: 100vw;
-    height: 6vh;
+    height: 8vh;
 }
 .navbar .container .title{
     font-family: 'poppins';
     font-weight: 600;
     font-size: 2rem;
 }
-
+.navbar #toggle-menu{
+    display: none;
+}
 .navbar .container .main-menu{
     display: flex;
     width: 40vw;
@@ -66,6 +73,7 @@ body{
     color: var(--text-color);
     font-family: 'poppins';
     font-size: 1.7rem;
+    transition: .5s;
 }
 
 .navbar .container .main-menu a:hover,
@@ -215,7 +223,6 @@ body{
     top: 0;
     right: 0;
     width: 45%;
-    /* border: 2px solid red; */
     height: 100vh;
     background: transparent;
     transition: 5s;
@@ -527,7 +534,7 @@ span{
 }
 
 /* footer */
-footer{
+.footer{
     font-family: 'poppins', sans-serif;
     margin-top: 20vh;
     padding: 0 5%;
@@ -538,11 +545,11 @@ footer{
     height: 12vh;
     background-color: var(--secondary-color);
 }
-footer h1{
+.footer h1{
     font-size: 1.7rem;
     font-weight: 400;
 }
-footer .slide-hover{
+.footer .slide-hover{
     position: relative;
     display: grid;
     place-content: center;
@@ -550,7 +557,7 @@ footer .slide-hover{
     width: 4rem;
 }
 
-footer a {
+.footer a {
     font-size: 3rem;
     color: var(--text-color);
     position: relative;
@@ -564,11 +571,11 @@ footer a {
     border-radius: .6rem;
     z-index: 1;
 } 
-footer a:hover{
+.footer a:hover{
     transition: .5s;
     color: var(--text-main);
 }
-footer a::before{
+.footer a::before{
     content: '';
     position:absolute;
     left: 0;
@@ -578,20 +585,115 @@ footer a::before{
     z-index: -1;
     transition: .5s;
 }
-footer a:hover::before{
+.footer a:hover::before{
     width: 100%;
 }
 
-
 /* media responsive */
-@media (max-width:900px){
+/* dekstop */
+@media (max-width:992px){
+    html{
+        font-size: 55%;
+    }
+    .navbar .container .main-menu{
+        width: 50vw;
+    }
+    .home .home-content{
+        padding: 20.5vh 5%;
+    }
     .contact form{
         width: 100%;
     }
     .container-flex .form-group{
         grid-template-columns: repeat(1,1fr);
     }
+    .home .home-content .src-media{
+        width: 18rem;
+    }
 }
+/* tablets */
+@media (max-width:768px){
+    .navbar .container{
+        padding: 0 3.5rem;
+    }
+    .navbar .container .main-menu{
+        width: 60vw;
+    }
+    .col-education .content{
+        padding: 1rem 0 1rem 1.5rem;
+    }
+}
+/* handphone/tablets */
+@media (max-width:600px){
+    html{
+        font-size: 55%;
+    }
+    .home .home-content{
+        width: 70vw;
+    }
+    /* hamburger menu */
+    .navbar.hamburger{
+        background-color: var(--bg-color);
+    }
+    .navbar #toggle-menu{
+        display: block;
+        position: relative;
+    }
+    .navbar .container .main-menu{
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        display: block;
+        background-color: var(--bg-color);
+        width: 100%;
+        padding: 0 3rem;
+        transition: .25s ease;
+        transition-delay: .1s;
+    }
+    .navbar .container .main-menu.active{
+        left: 0;
+        transition-delay: 0;
+    }
+    .navbar .container .main-menu li{
+        padding: 1.3em 0;
+    }
+    /* end */
+    .footer{
+        flex-direction: column-reverse;
+    }
+    .footer .slide-hover{
+        margin: .5rem;
+    }
+}
+/* mobile */
+@media (max-width:375px){
+    html{
+        font-size: 50%;
+    }
+    .navbar .container{
+        padding: 0 1.5rem;
+    }
+    .home .home-content{
+        width: 80vw;
+    }
+    .home .home-content .button-box{
+        width: 30rem;
+    }
+    .button-box a{
+        width: 14rem;
+    }
+    .home .home-content .src-media{
+        width: 19.5rem;
+    }
+    .home-content .home-imgHov{
+        z-index: -1;
+    }
+    .col-education .content::before {
+        left:-2.4%;
+    }
+
+}
+
 
 
 /* settings scrollbar */

@@ -12,12 +12,12 @@
 
 </head>
 <body>
-    <!-- section navbar -->
-    <section class="navbar">
+
+    <section class="navbar" id="navbar">
         <div class="container">
             <h1 class="title">Josua.</h1>
 
-            <div class="bx bx-menu" id="toggle-menu"></div>
+            <div class="bx bx-menu" id="toggle-menu" onclick="toggleMenu();"></div>
 
             <ul class="main-menu">
                 <li><a href="#home" class="active">Home</a></li>
@@ -29,7 +29,7 @@
         </div>
     </section>
 
-    <!-- section home -->
+    
     <section class="home" id="home">
         <div class="home-content">
             <h1>Hi, I'm Josua Siagian</h1>
@@ -52,6 +52,7 @@
         </div>
     </section>
 
+    
     <section class="about" id="about">
         <div class="content-about">
             <h1>About <span>Me</span></h1>    
@@ -72,6 +73,7 @@
             </div>
     </section>
 
+    
     <section class="education" id="education">
         <div class="flex-education">
         <h2>My <span>Journey</span></h2>
@@ -82,7 +84,7 @@
 
                 <div class="content">
                     <div class="content-education">
-                    <i class='bx bxs-calendar'></i><span class="year">2009-2015</span>
+                    <i class='bx bxs-calendar'></i><span class="year">2013-2015</span>
                     <h3>SMP N 2 Tarutung</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi explicabo quidem accusamus aspernatur? Porro consequuntur inventore iusto, sapiente magnam ipsum.</p>
                     </div>
@@ -137,7 +139,7 @@
     </div>
     </section>
 
-    <!-- skills -->
+
     <section class="skills" id="skills">
         <div class="content-skill">
             <h2 class="title">My <span>Skill</span></h2>
@@ -202,7 +204,7 @@
     </div>
     </section>
 
-    <!-- contact -->
+
     <section class="contact" id="contact">
         <div class="container-flex">
             <h2 class="title">Contact <span>Me!</span></h2>
@@ -239,12 +241,13 @@
         </div>
     </section>
 
-    <!-- footer -->
-    <footer>
+    <section class="footer" id="footer">
         <h1>CopyRight &copy; | By Josua Siagian 2023</h1>
         <div class="slide-hover">
             <a href="#"><i class='bx bx-up-arrow-alt' id="arrow"></i></a>
         </div>
-    </footer>
+    </section>
+
+    <script src="js/javascript.js"></script>
 </body>
 </html>
