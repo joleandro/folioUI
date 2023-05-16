@@ -3,10 +3,9 @@ window.onscroll = () =>{
     // scrollY to do header
     let nav = document.querySelector('#navbar');
 
-    nav.classList.toggle('sticky',window.scrollY > 200);
-}
+    nav.classList.toggle('sticky',window.scrollY > 120);
 
-// link active 
+    // link active 
 let menuItems = document.querySelectorAll('.main-menu li a');
 
 menuItems.forEach(item => {
@@ -50,13 +49,23 @@ arrow.addEventListener('click', function(e) {
   document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
 });
 
-// hamburger menu
-function toggleMenu() {
+    // hamburger menu
     let toggleIcon = document.getElementById('toggle-menu');
     let menuList = document.querySelector('.main-menu');
     let bgNav = document.querySelector('.navbar');
 
-    toggleIcon.classList.toggle('bx-x');
-    bgNav.classList.toggle('hamburger');
-    menuList.classList.toggle('active');
+    toggleIcon.onclick = () => {
+      toggleIcon.classList.toggle('bx-x');
+      bgNav.classList.toggle('hamburger');
+      menuList.classList.toggle('active');
+    }
+
+
+    
+    // remove class if click link
+    toggleIcon.classList.remove('bx-x');
+    bgNav.classList.remove('hamburger');
+    menuList.classList.remove('active');
+
 }
+

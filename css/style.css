@@ -95,6 +95,7 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, .7);
 }
 .home .home-content{
     width: 50vw;
@@ -644,15 +645,33 @@ span{
         top: 100%;
         left: -100%;
         display: block;
-        background-color: var(--bg-color);
+        background-color: var(--text-main);
         width: 100%;
+        z-index: 1;
         padding: 0 3rem;
         transition: .25s ease;
-        transition-delay: .1s;
+        transition-delay: 0s;
     }
     .navbar .container .main-menu.active{
         left: 0;
-        transition-delay: 0;
+        transition-delay: 0s;
+        box-shadow: 0 .2px 5px var(--text-main);
+    }
+    .main-menu .sub-active{
+        position: absolute;
+        left: -100%;
+        top: 0;
+        background:var(--bg-color);
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        transition: .5s ease;
+        transition-delay: 0s;
+    }
+    .main-menu.active .sub-active{
+        left: 0;
+        transition: .75s;
+        transition-delay: 0s;
     }
     .navbar .container .main-menu li{
         padding: 1.3em 0;
@@ -669,6 +688,9 @@ span{
 @media (max-width:375px){
     html{
         font-size: 50%;
+    }
+    .navbar .container .main-menu {
+        padding: 0 1.5rem;
     }
     .navbar .container{
         padding: 0 1.5rem;
