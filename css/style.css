@@ -57,6 +57,7 @@ body{
 }
 .navbar .container .title{
     font-family: 'poppins';
+    position: relative;
     font-weight: 600;
     font-size: 2rem;
 }
@@ -65,6 +66,7 @@ body{
 }
 .navbar .container .main-menu{
     display: flex;
+    position: relative;
     width: 40vw;
     justify-content: space-between;
 }
@@ -102,11 +104,13 @@ body{
     padding: 27vh 5%; 
 }
 .home .home-content h1{
+    position: relative;
     font-size: 4rem;
     line-height: 5rem;
 }
 .home .text-animated{
     position: relative;
+    margin: .3rem 0;
     width: 29rem;
 }
 .home .home-content h3{
@@ -133,7 +137,8 @@ body{
     transition-delay: .2s;
 }
 .home .home-content p{
-    padding: 5% 0;
+    margin: 5% 0;
+    position: relative;
     font-size: 1.3rem;
     font-weight: 400;
 }
@@ -262,6 +267,7 @@ body{
 .about .content-about h1{
     font-size: 3rem;
     font-weight: 600;
+    position: relative;
     letter-spacing: .5rem;
     text-transform: capitalize;
 }
@@ -300,17 +306,28 @@ span{
     animation: AboutCircleMove 6s linear infinite;
 }
 .about .text-info{
-    text-align: center;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 .about .text-info h3{
     font-size: 2.7em;
     margin: 3vh 0;
+    text-align: center;
+    position: relative;
     font-weight: 600;
 }
 .about .text-info p{
     font-size: 1.3em;
+    position: relative;
     font-weight: 200;
     margin: 3vh 0;
+}
+.button-box{
+    position: relative;
 }
 .button-box .btn{
     padding: 1.5rem;
@@ -327,7 +344,8 @@ span{
 .education .flex-education h2{
     font-size: 3rem;
     letter-spacing: .5rem;
-    padding-bottom: 6.5rem;
+    position: relative;
+    margin-bottom: 6.5rem;
 }
 .row-education{
     display: flex;
@@ -337,15 +355,21 @@ span{
 }
 .row-education .col-education{
     flex: 1 1 45rem;
+    position: relative;
 }
 .row-education .col-education .title{
     font-size: 2rem;
-    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    width: max-content;
+    position: relative;
+}
+.col-education .container-content{
+    position: relative;
 }
 .col-education .content{
     border-left: .2em solid var(--text-main);
-    position: relative;
     padding: 1rem 2rem;
+    position: relative;
 }
 .col-education .content::before{
     content: '';
@@ -407,7 +431,8 @@ span{
 .skills .content-skill .title{
     font-size: 3rem;
     letter-spacing: .5rem;
-    padding-bottom: 6.5rem;
+    position: relative;
+    margin-bottom: 6.5rem;
 }
 .content-skill .row-skill{
     display: flex;
@@ -421,7 +446,11 @@ span{
 }
 .col-skill h2{
     font-size: 2.3em;
-    padding-bottom: 1.8rem;
+    position: relative;
+    margin-bottom: 1.8rem;
+}
+.col-skill .container-border{
+    position: relative;
 }
 .col-skill .border{
     border: .2em solid var(--text-main);
@@ -499,7 +528,8 @@ span{
 }
 .container-flex .title{
     font-size: 4rem;
-    padding-bottom: 4.5rem;
+    margin-bottom: 4.5rem;
+    position: relative;
 }
 .container-flex form{
     width: 70%;
@@ -509,6 +539,7 @@ span{
 .container-flex .form-group{
     display: grid;
     grid-template-columns: repeat(2,1fr);
+    position: relative;
     gap: .5rem;
 }
 .container-flex .form-group .input-group, .command{
@@ -567,6 +598,7 @@ span{
 .footer h1{
     font-size: 1.7rem;
     font-weight: 400;
+    position: relative;
 }
 .footer .slide-hover{
     position: relative;
@@ -575,7 +607,6 @@ span{
     height: 4rem;
     width: 4rem;
 }
-
 .footer a {
     font-size: 3rem;
     color: var(--text-color);
@@ -607,6 +638,46 @@ span{
 .footer a:hover::before{
     width: 100%;
 }
+.footer .animated.scroll.color{
+    background: var(--secondary-color);
+}
+
+/* animated scroll and reload */
+.animated{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background: #030a10;
+}
+.navbar .container .title .animated,
+.navbar .container .main-menu .animated,
+.navbar #toggle-menu .animated,
+.home.show-animated .animated{
+    animation: ReloadContent 1.3s ease forwards;
+    animation-delay: calc(.3s * var(--i));
+}
+
+.animated.scroll{
+    transition: 1s ease all;
+    transition-delay: calc(.3s / var(--i));
+    background: var(--bg-color);
+}
+.about.show-animated .animated.scroll,
+.education.show-animated .animated.scroll,
+.skills.show-animated .animated.scroll,
+.contact.show-animated .animated.scroll,
+.footer.show-animated .animated.scroll{
+    transition-delay: calc(.3s * var(--i));
+    width: 0;
+}
+.min-flow{
+    position: absolute;
+    left: -2.4%;
+    width: 103%;
+}
 
 /* media responsive */
 /* dekstop */
@@ -617,7 +688,7 @@ span{
     .navbar .container .main-menu{
         width: 50vw;
     }
-    .home .home-content{
+    .home-content{
         padding: 25.5vh 5%;
     }
     .contact form{
@@ -715,10 +786,10 @@ span{
         font-size: 50%;
     }
     .navbar .container .main-menu {
-        padding: 0 1.5rem;
+        padding: 3.6rem 1.5rem;
     }
     .navbar .container{
-        padding: 0 1.5rem;
+        padding: 0 2.5rem;
     }
     .home .home-content .button-box{
         width: 30rem;
@@ -785,5 +856,10 @@ span{
 @keyframes AboutCircleMove{
     100%{
         transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+@keyframes ReloadContent{
+    100%{
+        width: 0;
     }
 }

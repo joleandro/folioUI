@@ -3,51 +3,29 @@ window.onscroll = () =>{
     // scrollY to do header
     let nav = document.querySelector('#navbar');
 
-    nav.classList.toggle('sticky',window.scrollY > 120);
+    nav.classList.toggle('sticky',window.scrollY > 100);
 
     // link active 
-let menuItems = document.querySelectorAll('.main-menu li a');
+    let Section = document.querySelectorAll('section');
+    let navLink = document.querySelectorAll('ul li a');
 
-menuItems.forEach(item => {
-  item.addEventListener('click', function(e) {
-    e.preventDefault();
-    
-    // Hapus class "active" dari semua item menu
-    menuItems.forEach(menuItem => {
-      menuItem.classList.remove('active');
-    });
-    
-    // Tambahkan class "active" pada item menu yang diklik
-    this.classList.add('active');
-    
-    // Ambil ID target dari href
-    let targetId = this.getAttribute('href');
-    
-    // Ambil elemen target berdasarkan ID
-    let targetElement = document.querySelector(targetId);
-    
-    // Gulir ke elemen target
-    targetElement.scrollIntoView({ behavior: 'smooth' });
-  });
-});
+      Section.forEach(sec => {
+        let Top = window.scrollY;
+        let Offset = sec.offsetTop - 300;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute('id');
 
-// link active if arrow click
-let arrow = document.getElementById('arrow');
-
-arrow.addEventListener('click', function(e) {
-  e.preventDefault();
-
-  // Hapus class "active" dari semua item menu
-  menuItems.forEach(menuItem => {
-    menuItem.classList.remove('active');
-  });
-
-  // Tambahkan class "active" pada link Home
-  document.querySelector('a[href="#home"]').classList.add('active');
-
-  // Gulir ke elemen Home
-  document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
-});
+        if(Top >= Offset && Top < Offset + height){
+          // act link
+          navLink.forEach(act =>{
+            act.classList.remove('active');
+            document.querySelector('.navbar .main-menu li a[href*='+ id +']').classList.add('active');
+          });
+          sec.classList.add('show-animated');
+        }else{
+          sec.classList.remove('show-animated');
+        }
+      });
 
     // hamburger menu
     let toggleIcon = document.getElementById('toggle-menu');
@@ -59,13 +37,16 @@ arrow.addEventListener('click', function(e) {
       bgNav.classList.toggle('hamburger');
       menuList.classList.toggle('active');
     }
-
-
     
     // remove class if click link
     toggleIcon.classList.remove('bx-x');
     bgNav.classList.remove('hamburger');
     menuList.classList.remove('active');
+
+    let Footer = document.querySelector('.footer');
+
+    Footer.classList.toggle('show-animated', this.innerHeight + this.scrollY >= document.scrollingElement.scrollHeight);
+    
 
 }
 
