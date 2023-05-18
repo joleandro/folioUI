@@ -49,4 +49,49 @@ window.onscroll = () =>{
     
 
 }
+  
 
+document.addEventListener('DOMContentLoaded', function() {
+  const certifikatLink1 = document.getElementById('certifikat-link-1');
+  const certifikatLink2 = document.getElementById('certifikat-link-2');
+  const certifikatLink3 = document.getElementById('certifikat-link-3');
+  const certifikatLink4 = document.getElementById('certifikat-link-4');
+  const certifikatLink5 = document.getElementById('certifikat-link-5');
+  const modal = document.getElementById('modal');
+  const modalImage = document.getElementById('modal-image');
+  const closeBtn = document.querySelector('.close');
+
+  certifikatLink1.addEventListener('click', function() {
+      showImageModal('assets/img/certifikat/revoU.png');
+  });
+
+  certifikatLink2.addEventListener('click', function() {
+      showImageModal('assets/img/certifikat/Telkom.png');
+  });
+
+  certifikatLink3.addEventListener('click', function() {
+      showImageModal('assets/img/certifikat/dinasKerjaan.png');
+  });
+
+  certifikatLink4.addEventListener('click', function() {
+      showImageModal('assets/img/certifikat/codepolitanAjax.png');
+  });
+
+  certifikatLink5.addEventListener('click', function() {
+    showImageModal('assets/Cv.png');
+  });
+
+  closeBtn.addEventListener('click', function() {
+      closeModal();
+  });
+
+  function showImageModal(imageUrl) {
+      modalImage.src = imageUrl;
+      modal.style.display = 'block';
+
+    }
+
+  function closeModal() {
+      modal.style.display = 'none';
+  }
+});

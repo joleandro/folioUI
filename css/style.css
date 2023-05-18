@@ -28,7 +28,7 @@ body{
 }
 
 /* padding beetwen sections */
-.about,.education,.skills,.portofolio,.contact{
+.about,.education,.skills,.portofolio,.certifikat,.contact{
     font-family: 'poppins',sans-serif;
     padding: 16vh 5% 0 5%; 
 }
@@ -67,7 +67,7 @@ body{
 .navbar .container .main-menu{
     display: flex;
     position: relative;
-    width: 40vw;
+    width: 55vw;
     justify-content: space-between;
 }
 
@@ -92,7 +92,7 @@ body{
 /* home  */
 .home{
     font-family: 'poppins',sans-serif;
-    background: url('../img/banner.png');
+    background: url('../assets/img/banner.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -577,19 +577,19 @@ span{
     transform: scale(1.02);
 }
 .square.square-1{
-    background: url(../img/hero_folio1.png);
+    background: url(../assets/img/portofolio/hero_folio1.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 .square.square-2{
-    background: url(../img/hero_folio2.png);
+    background: url(../assets/img/portofolio/hero_folio2.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 .square.square-3{
-    background: url(../img/hero_folio3.png);
+    background: url(../assets/img/portofolio/hero_folio3.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -601,6 +601,121 @@ span{
     width: 100%;
     height: 100%;
 }
+
+/* certifikat */
+.certifikat h2{
+    font-size: 4rem;
+    margin-bottom: 6.5rem;
+    text-align: center;
+    position: relative;
+}
+.container-certif {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 5rem;
+}
+.border-relative{
+    position: relative;
+}
+.certifikat .container{
+    border: .2em solid var(--text-main);
+}
+.first.container {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.container .text-certif{
+    grid-column: 1/-1;
+    text-align: center;
+    font-size: 2.5rem;
+}
+.card-certif,
+.card-certif .cv {
+    width: 80%;
+    height: 8rem;
+    background-color: gray;
+    margin: 10px;
+    border-radius: .8rem;
+    border: .2em solid var(--text-main);
+    cursor: pointer;
+}
+.certif-image{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#certifikat-link-1{
+    background-image: url(../assets/img/certifikat/revoU.png);
+}
+#certifikat-link-2{
+    background-image: url(../assets/img/certifikat/Telkom.png);
+}
+#certifikat-link-3{
+    background-image: url(../assets/img/certifikat/dinasKerjaan.png);
+}
+#certifikat-link-4{
+    background-image: url(../assets/img/certifikat/codepolitanAjax.png);
+}
+
+.secondary.container .cv{
+    width: 95%;
+    background-position: center top 30%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#certifikat-link-5{
+    background-image: url(../assets/Cv.png);
+}
+.secondary.container .button-box .btn{
+    width: 30%; 
+    margin: 10px;
+}
+
+/* modalbox */
+.modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.container-modal{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 10vh;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+img {
+    max-width: 80%;
+    max-height: 80%;
+}
+
 
 /* contact */
 .contact .container-flex{
@@ -751,6 +866,7 @@ span{
 .about.show-animated .animated.scroll,
 .education.show-animated .animated.scroll,
 .skills.show-animated .animated.scroll,
+.certifikat.show-animated .animated.scroll,
 .portofolio.show-animated .animated.scroll,
 .contact.show-animated .animated.scroll,
 .footer.show-animated .animated.scroll{
@@ -770,7 +886,7 @@ span{
         font-size: 55%;
     }
     .navbar .container .main-menu{
-        width: 50vw;
+        width: 70vw;
     }
     .home-content{
         padding: 25.5vh 5%;
@@ -784,6 +900,10 @@ span{
     .home .home-content .src-media{
         width: 18rem;
     }
+    .secondary.container .button-box .btn{
+        width: 40%;
+    }
+    
 }
 /* tablets */
 @media (max-width:768px){
@@ -858,6 +978,10 @@ span{
      text-align: center;   
     }
     .portofolio .container{
+        grid-template-columns: repeat(1,1fr);
+    }
+    /* certifikat & cv */
+    .certifikat .container-certif{
         grid-template-columns: repeat(1,1fr);
     }
     .footer{
