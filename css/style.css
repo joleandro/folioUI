@@ -1122,3 +1122,400 @@ img {
         animation: typingName 5.5s steps(13) infinite, typingCursor .75s step-end infinite;
     }
 }
+
+
+/* =========================================================
+   FINAL RESPONSIVE FIX - KEEP ORIGINAL DESIGN
+   Tujuan:
+   1) Menghilangkan blok hitam pada tampilan kecil/tablet.
+   2) Membuat teks hero tidak terpotong.
+   3) Menjaga gambar/banner tetap halus seperti desain lama.
+   4) Membuat tampilan HP dan tablet lebih rapi.
+   ========================================================= */
+
+/* Pastikan elemen overlay pembuka tidak menutupi konten terlalu lama */
+.home.show-animated .animated{
+    pointer-events: none;
+}
+
+/* Desktop kecil / tablet landscape */
+@media (max-width: 1200px){
+    .navbar .container{
+        padding: 0 4.5rem;
+    }
+
+    .navbar .container .main-menu{
+        width: 62vw;
+        gap: 2rem;
+    }
+
+    .home .home-content{
+        width: 58vw;
+        padding: 25vh 5%;
+    }
+
+    .home .home-content h1{
+        font-size: 3.7rem;
+        line-height: 4.7rem;
+        white-space: normal;
+    }
+
+    .home .home-content p{
+        max-width: 48rem;
+        line-height: 1.55;
+    }
+
+    /* Area hover gambar jangan berubah jadi blok gelap permanen */
+    .home-content .home-imgHov{
+        width: 42%;
+        pointer-events: none;
+        z-index: 0;
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px){
+    html{
+        font-size: 55%;
+    }
+
+    .navbar .container{
+        padding: 0 3.2rem;
+    }
+
+    .navbar .container .main-menu{
+        width: 66vw;
+        gap: 1.8rem;
+    }
+
+    .navbar .container .main-menu a{
+        font-size: 1.55rem;
+    }
+
+    .home{
+        min-height: 100vh;
+        height: auto;
+        background-position: center right 28%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Layer gelap tipis supaya tulisan jelas, bukan blok hitam */
+    .home::before{
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, rgba(4,20,34,.92) 0%, rgba(4,20,34,.72) 45%, rgba(4,20,34,.25) 100%);
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .home .home-content{
+        position: relative;
+        z-index: 2;
+        width: 65vw;
+        padding: 22vh 5% 12vh;
+    }
+
+    .home .home-content h1{
+        font-size: 3.6rem;
+        line-height: 4.6rem;
+        max-width: 100%;
+        overflow: visible;
+    }
+
+    .home .home-content h1 .typing-name{
+        max-width: 0;
+        animation: typingName 5.5s steps(13) infinite, typingCursor .75s step-end infinite;
+    }
+
+    .home .home-content p{
+        max-width: 48rem;
+        font-size: 1.35rem;
+        line-height: 1.65;
+    }
+
+    .home .home-content .button-box{
+        width: 34rem;
+    }
+
+    .home .home-content .src-media{
+        position: relative;
+        top: auto;
+        margin-top: 9rem;
+        width: 17rem;
+    }
+
+    /* Ini penyebab sering muncul blok hitam di tablet */
+    .home-content .home-imgHov,
+    .home-content .home-imgHov .animated{
+        display: none !important;
+    }
+
+    .contact form{
+        width: 100%;
+    }
+
+    .container-flex .form-group{
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    .secondary.container .button-box .btn{
+        width: 40%;
+    }
+}
+
+/* Tablet portrait dan HP besar */
+@media (max-width: 768px){
+    .navbar{
+        background-color: var(--bg-color);
+    }
+
+    .navbar .container{
+        padding: 0 2.6rem;
+    }
+
+    .navbar #toggle-menu{
+        display: block;
+        position: relative;
+        z-index: 1001;
+    }
+
+    .navbar .container .main-menu{
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        display: block;
+        width: 100%;
+        background-color: var(--bg-color);
+        padding: 1.4rem 3rem;
+        transition: .35s ease;
+        box-shadow: 0 .2rem 1.2rem rgba(0,171,240,.18);
+        z-index: 999;
+    }
+
+    .navbar .container .main-menu.active{
+        left: 0;
+    }
+
+    .navbar .container .main-menu li{
+        padding: 1.15rem 0;
+    }
+
+    .navbar .container .main-menu a{
+        display: block;
+        font-size: 1.8rem;
+    }
+
+    .main-menu .sub-active{
+        display: none;
+    }
+
+    .home{
+        background-position: center right 36%;
+    }
+
+    .home::before{
+        background: linear-gradient(180deg, rgba(4,20,34,.68) 0%, rgba(4,20,34,.86) 45%, rgba(4,20,34,.96) 100%);
+    }
+
+    .home .home-content{
+        width: 100vw;
+        min-height: 100vh;
+        padding: 17vh 5% 7vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .home .home-content h1{
+        width: 100%;
+        font-size: 3.6rem;
+        line-height: 4.5rem;
+        text-align: center;
+    }
+
+    .home .home-content h1 .typing-name{
+        display: inline-block;
+        max-width: 0;
+        vertical-align: bottom;
+    }
+
+    .home .home-content p{
+        width: min(92vw, 54rem);
+        margin: 3.2rem auto 3rem;
+        text-align: center;
+        font-size: 1.45rem;
+        line-height: 1.65;
+    }
+
+    .home .home-content .button-box{
+        width: min(35rem, 92vw);
+        height: 5rem;
+    }
+
+    .button-box a{
+        width: 15.5rem;
+        max-width: 45%;
+        font-size: 1.75rem;
+    }
+
+    .home .home-content .src-media{
+        margin-top: 7rem;
+        width: 17.5rem;
+        justify-content: space-between;
+    }
+
+    .portofolio .container{
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    .certifikat .container-certif{
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    .row-education{
+        gap: 3rem;
+    }
+
+    .col-education .content{
+        padding: 1rem 0 1rem 1.5rem;
+    }
+}
+
+/* HP */
+@media (max-width: 600px){
+    html{
+        font-size: 52%;
+    }
+
+    .home{
+        background-position: center top;
+        background-size: cover;
+    }
+
+    .home::before{
+        background: linear-gradient(180deg, rgba(4,20,34,.58) 0%, rgba(4,20,34,.84) 42%, rgba(4,20,34,.98) 100%);
+    }
+
+    .home .home-content{
+        padding: 15vh 5% 7vh;
+        justify-content: center;
+    }
+
+    .home .home-content h1{
+        font-size: 3.25rem;
+        line-height: 4.1rem;
+        white-space: normal;
+        overflow: visible;
+    }
+
+    .home .home-content h1 .typing-name{
+        display: block;
+        margin: .2rem auto 0;
+        width: max-content;
+        max-width: 0;
+        text-align: center;
+    }
+
+    .home .home-content p{
+        font-size: 1.42rem;
+        line-height: 1.65;
+        margin-top: 2.7rem;
+        margin-bottom: 2.8rem;
+    }
+
+    .home .home-content .button-box{
+        gap: 1.6rem;
+        justify-content: center;
+    }
+
+    .button-box a{
+        height: 100%;
+        width: 14.8rem;
+        max-width: 100%;
+        font-size: 1.65rem;
+    }
+
+    .home .home-content .src-media{
+        margin-top: 6.5rem;
+        width: 17rem;
+    }
+
+    .home .home-content .src-media a{
+        width: 43px;
+        height: 43px;
+        font-size: 2.8rem;
+    }
+
+    .about,.education,.skills,.portofolio,.certifikat,.contact{
+        padding: 13vh 5% 0 5%;
+    }
+
+    .footer{
+        min-height: 12vh;
+        height: auto;
+        padding: 2rem 5%;
+        flex-direction: column-reverse;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .footer .slide-hover{
+        margin: .5rem;
+    }
+}
+
+/* HP kecil */
+@media (max-width: 420px){
+    html{
+        font-size: 50%;
+    }
+
+    .navbar .container{
+        padding: 0 2rem;
+    }
+
+    .home .home-content{
+        padding-top: 14vh;
+    }
+
+    .home .home-content h1{
+        font-size: 3rem;
+        line-height: 3.9rem;
+    }
+
+    .home .home-content p{
+        width: 92vw;
+        font-size: 1.36rem;
+    }
+
+    .home .home-content .button-box{
+        width: 100%;
+        gap: 1.2rem;
+    }
+
+    .button-box a{
+        width: 14rem;
+        font-size: 1.55rem;
+    }
+
+    .home .home-content .src-media{
+        margin-top: 5.8rem;
+    }
+}
+
+/* HP sangat kecil */
+@media (max-width: 360px){
+    .home .home-content h1{
+        font-size: 2.75rem;
+        line-height: 3.6rem;
+    }
+
+    .button-box a{
+        width: 13.2rem;
+        font-size: 1.45rem;
+    }
+}
