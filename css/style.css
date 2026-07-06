@@ -1519,3 +1519,107 @@ img {
         font-size: 1.45rem;
     }
 }
+
+/* =========================================================
+   FIX FINAL SKILL BAR - PERSEN SESUAI DENGAN TULISAN
+   Tidak perlu ubah HTML. Ini override terakhir agar rule lama tidak bentrok.
+   ========================================================= */
+.skills{
+    min-height: 100vh;
+    padding-bottom: 6rem;
+}
+
+.content-skill .row-skill{
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.row-skill .col-skill{
+    max-width: 58rem;
+}
+
+.content-col h3{
+    align-items: center;
+    gap: 1rem;
+    font-weight: 700;
+}
+
+.content-col h3 span{
+    min-width: 4.5rem;
+    text-align: right;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.content-col .stoneBar{
+    width: 100%;
+    padding: 4px;
+    border-radius: 30px;
+    border: 2px solid var(--text-main);
+    overflow: hidden;
+}
+
+.content-col .stoneBar span{
+    display: block;
+    height: 14px;
+    border-radius: 20px;
+    background: var(--text-main);
+}
+
+/* Coding Skill: HTML 100%, CSS 90%, JavaScript 87%, PHP 80% */
+.row-skill .col-skill:nth-child(1) .border .content-col:nth-child(1) .stoneBar span{
+    width: 100% !important;
+}
+
+.row-skill .col-skill:nth-child(1) .border .content-col:nth-child(2) .stoneBar span{
+    width: 90% !important;
+}
+
+.row-skill .col-skill:nth-child(1) .border .content-col:nth-child(3) .stoneBar span{
+    width: 87% !important;
+}
+
+.row-skill .col-skill:nth-child(1) .border .content-col:nth-child(4) .stoneBar span{
+    width: 80% !important;
+}
+
+/* Experience Skill: Design Web 90%, Design Database 100%, Frontend Dev 90%, Backend Dev 80% */
+.row-skill .col-skill:nth-child(2) .border .content-col:nth-child(1) .stoneBar span{
+    width: 90% !important;
+}
+
+.row-skill .col-skill:nth-child(2) .border .content-col:nth-child(2) .stoneBar span{
+    width: 100% !important;
+}
+
+.row-skill .col-skill:nth-child(2) .border .content-col:nth-child(3) .stoneBar span{
+    width: 90% !important;
+}
+
+.row-skill .col-skill:nth-child(2) .border .content-col:nth-child(4) .stoneBar span{
+    width: 80% !important;
+}
+
+@media (max-width: 992px){
+    .content-skill .row-skill{
+        gap: 3rem;
+    }
+
+    .row-skill .col-skill{
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px){
+    .skills .content-skill .title{
+        margin-bottom: 3.5rem;
+    }
+
+    .col-skill h2{
+        font-size: 2rem;
+    }
+
+    .col-skill .border{
+        padding: 1rem 1.4rem 1.8rem;
+    }
+}
